@@ -24,11 +24,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generating ${{ inputs.counter }} times ${{ env.SEARCH_STRING }}
+      - name: Generating ${{ env.SEARCH_STRING }}
         run: |
-          echo " Generating ${{ inputs.counter }} times ${{ env.SEARCH_STRING }} "
+          END=0
+          if [[ ${{ inputs.counter }}; then
+            END=${{ inputs.counter }}
+          fi
+          if [[ $END gt '1000'; then
+            END=1000
+          fi
+          echo " Generating $END times ${{ env.SEARCH_STRING }} "
           i=1
-          while [ $i -le ${{ inputs.counter }} ]; do
+          while [ $i -le $END ]; do
             echo "Iteration: $i"
             ((i++))
           done
