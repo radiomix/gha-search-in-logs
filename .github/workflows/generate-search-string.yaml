@@ -1,0 +1,34 @@
+# This workflow generates a string to be searched for in the GHA UI
+
+name: Generate 120 times `Foo is not Bar`
+
+# Controls when the workflow will run
+on:
+  push:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      counter:
+        description: "Enter an integer"
+        required: true
+        type: number
+        default: 120
+
+jobs:
+  generate-search-string:
+    runs-on: ubuntu-latest
+    env:
+      SEARCH_STRING: 'Foo is not Bar'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate ${{ env.SEARCH_STRING }} for {{ $inputs.counter }} times
+        run: |
+          i=1
+          while [ $i -le {{ $inputs.counter }} ]; do
+            echo "Iteration: $i"
+            ((i++))
+          done
+        shell: bash
