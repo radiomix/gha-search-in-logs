@@ -27,7 +27,7 @@ jobs:
       - name: Generate ${{ env.SEARCH_STRING }} for {{ $inputs.counter }} times
         run: |
           i=1
-          while [ $i -le {{ $inputs.counter }} ]; do
+          while [ $i -le ${{ $inputs.counter }} ]; do
             echo "Iteration: $i"
             ((i++))
           done
