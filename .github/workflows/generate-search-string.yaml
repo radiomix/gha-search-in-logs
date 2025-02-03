@@ -27,10 +27,10 @@ jobs:
       - name: Generating ${{ env.SEARCH_STRING }}
         run: |
           END=0
-          if [[ ${{ inputs.counter }}; then
+          if [[ ${{ inputs.counter }} ]]; then
             END=${{ inputs.counter }}
           fi
-          if [[ $END gt '1000'; then
+          if [ $END -gt '1000' ]; then
             END=1000
           fi
           echo " Generating $END times ${{ env.SEARCH_STRING }} "
