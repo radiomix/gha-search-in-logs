@@ -24,8 +24,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate ${{ env.SEARCH_STRING }} for {{ $inputs.counter }} times
+      - name: Generating ${{ inputs.counter }} times ${{ env.SEARCH_STRING }}
         run: |
+          echo " Generating ${{ inputs.counter }} times ${{ env.SEARCH_STRING }} "
           i=1
           while [ $i -le ${{ inputs.counter }} ]; do
             echo "Iteration: $i"
