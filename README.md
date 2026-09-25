@@ -1,8 +1,8 @@
 #### Number of search result in Github Actions UI-search
 
 ##### Purpose: Create a repo to _verify_ [discussions/9868](https://github.com/orgs/community/discussions/9868) from **Jan 2020** (See [my comment](https://github.com/orgs/community/discussions/9868#discussioncomment-12044864) from **Jan 2025**)
-- create an actions generating **more** than 100 strings `Foo is not Bar`
-- run the search for string `Foo is not Bar` inside the UI
+- trigger [GHA `generate-search-string.yaml`](https://github.com/radiomix/gha-search-in-logs/actions/workflows/generate-search-string.yaml) generating **more** than 100 strings `Foo is not Bar`
+- search for string `Foo is not Bar` inside the GHA actions UI
 - get this search result :
 
 
